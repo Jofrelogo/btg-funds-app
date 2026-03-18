@@ -118,19 +118,19 @@ src/
 
 ## Dashboard principal
 
-![Dashboard](src/assets/readme/dashboard.png)
+![Dashboard](src/assets/readme/dashboard_1.png)
 
 ---
 
 ## Historial de transacciones
 
-![Historial](src/assets/readme/history.png)
+![Historial](src/assets/readme/history_1.png)
 
 ---
 
 ## Responsive móvil
 
-![Responsive](src/assets/readme/mobile.png)
+![Responsive](src/assets/readme/mobile_1.png)
 
 ---
 
