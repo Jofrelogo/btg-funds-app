@@ -1,14 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
+import { Title } from '@angular/platform-browser';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+
 import { FundService } from '../../services/fund.service';
 import { Fund } from '../../models/fund.model';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatSnackBarModule],
+  imports: [CommonModule, FormsModule, MatSnackBarModule, MatCardModule, MatFormFieldModule, MatSelectModule, MatButtonModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
@@ -20,9 +28,12 @@ export class DashboardComponent implements OnInit {
 
   notificationMethod = 'Email';
   constructor(
+    private readonly titleService: Title,
     private readonly fundService: FundService,
     private readonly snackBar: MatSnackBar
-  ) { }
+  ) {
+    this.titleService.setTitle('BTG Fondos - Dashboard');
+  }
 
   ngOnInit(): void {
     this.fundService.getFunds().subscribe(data => {

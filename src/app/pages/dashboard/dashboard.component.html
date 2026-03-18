@@ -1,26 +1,67 @@
 <div class="dashboard-container">
 
-    <h1>Fondos disponibles</h1>
+    <mat-card class="header-card">
 
-    <h2>Saldo disponible: {{ balance | currency:'COP':'symbol':'1.0-0' }}</h2>
+        <div class="header-content">
 
-    <label>Método de notificación:</label>
+            <div>
+                <h1>Fondos disponibles</h1>
+                <p>Administra tus inversiones de forma segura</p>
+            </div>
 
-    <select [(ngModel)]="notificationMethod">
-        <option value="Email">Email</option>
-        <option value="SMS">SMS</option>
-    </select>
+            <div class="balance-box">
+                <h2>{{ balance | currency:'COP':'symbol':'1.0-0' }}</h2>
+                <span>Saldo disponible</span>
+            </div>
 
-    <div *ngFor="let fund of funds" class="fund-card">
+        </div>
 
-        <h3>{{ fund.name }}</h3>
+    </mat-card>
 
-        <p>Monto mínimo: {{ fund.minimumAmount | currency:'COP':'symbol':'1.0-0' }}</p>
+    <mat-card class="filter-card">
 
-        <p>Categoría: {{ fund.category }}</p>
+        <mat-form-field appearance="outline" class="notification-field">
+            <mat-label>Método de notificación</mat-label>
 
-        <button (click)="subscribeFund(fund)">Suscribirse</button>
-        <button (click)="cancelFund(fund)">Cancelar</button>
+            <mat-select [(ngModel)]="notificationMethod">
+                <mat-option value="Email">Email</mat-option>
+                <mat-option value="SMS">SMS</mat-option>
+            </mat-select>
+
+        </mat-form-field>
+
+    </mat-card>
+
+    <div class="funds-grid">
+
+        <mat-card *ngFor="let fund of funds" class="fund-card">
+
+            <mat-card-title>{{ fund.name }}</mat-card-title>
+
+            <mat-card-content>
+
+                <p>
+                    Monto mínimo:
+                    {{ fund.minimumAmount | currency:'COP':'symbol':'1.0-0' }}
+                </p>
+
+                <p>Categoría: {{ fund.category }}</p>
+
+            </mat-card-content>
+
+            <mat-card-actions>
+
+                <button mat-raised-button color="primary" (click)="subscribeFund(fund)">
+                    Suscribirse
+                </button>
+
+                <button mat-raised-button color="warn" (click)="cancelFund(fund)">
+                    Cancelar
+                </button>
+
+            </mat-card-actions>
+
+        </mat-card>
 
     </div>
 
