@@ -12,7 +12,14 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { FundService } from '../../services/fund.service';
 import { Fund } from '../../models/fund.model';
 
-
+/**
+ * DashboardComponent
+ * 
+ * Muestra la lista de fondos disponibles, el saldo del usuario,
+ * y permite suscribirse o cancelar fondos. También permite seleccionar
+ * el método de notificación (Email o SMS) y muestra mensajes de error
+ * o confirmación mediante SnackBar.
+ */
 @Component({
   selector: 'app-dashboard',
   standalone: true,
@@ -35,6 +42,9 @@ export class DashboardComponent implements OnInit {
     this.titleService.setTitle('BTG Fondos - Dashboard');
   }
 
+  /**
+   * Inicializa el componente cargando los fondos desde el servicio
+   */
   ngOnInit(): void {
     this.fundService.getFunds().subscribe(data => {
       this.funds = data;
@@ -43,6 +53,10 @@ export class DashboardComponent implements OnInit {
     this.balance = this.fundService.getCurrentBalance();
   }
 
+  /**
+  * Suscribirse a un fondo
+  * @param fund El fondo al que se desea suscribir
+  */
   subscribeFund(fund: Fund): void {
     if (this.fundService.getSubscribedFunds().includes(fund.id)) {
       this.showMessage('Ya está suscrito a este fondo');
@@ -68,6 +82,10 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  /**
+  * Cancelar una suscripción a un fondo
+  * @param fund El fondo que se desea cancelar
+  */
   cancelFund(fund: Fund): void {
 
     if (this.fundService.getSubscribedFunds().includes(fund.id)) {
@@ -89,6 +107,11 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  /**
+   * Muestra un mensaje usando MatSnackBar
+   * @param message Mensaje a mostrar
+   * @param isError Indica si es un mensaje de error (opcional)
+   */
   showMessage(message: string): void {
     this.snackBar.open(message, 'Cerrar', {
       duration: 3000

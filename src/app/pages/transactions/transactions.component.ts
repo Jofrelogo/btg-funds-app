@@ -6,6 +6,12 @@ import { Title } from '@angular/platform-browser';
 import { FundService } from '../../services/fund.service';
 import { Transaction } from '../../models/transaction.model';
 
+/**
+ * TransactionsComponent
+ * 
+ * Muestra el historial de transacciones del usuario:
+ * suscripciones y cancelaciones de fondos.
+ */
 @Component({
   selector: 'app-transactions',
   standalone: true,
@@ -27,6 +33,9 @@ export class TransactionsComponent implements OnInit {
     this.titleService.setTitle('BTG Fondos - Historial');
   }
 
+  /**
+  * Inicializa el componente cargando las transacciones desde el servicio
+  */
   ngOnInit(): void {
     this.fundService.transactions$.subscribe(data => {
       this.transactions = data;
