@@ -1,0 +1,31 @@
+.dashboard-container {
+    padding: 20px;
+}
+
+.fund-card {
+    border: 1px solid #ddd;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+}
+
+.fund-card button {
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .fund-card {
+        padding: 12px;
+    }
+
+    .fund-card button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .fund-card select {
+        width: 100%;
+        margin-top: 10px;
+    }
+}

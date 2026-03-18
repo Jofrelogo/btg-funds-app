@@ -1,0 +1,27 @@
+<div class="dashboard-container">
+
+    <h1>Fondos disponibles</h1>
+
+    <h2>Saldo disponible: {{ balance | currency:'COP':'symbol':'1.0-0' }}</h2>
+
+    <label>Método de notificación:</label>
+
+    <select [(ngModel)]="notificationMethod">
+        <option value="Email">Email</option>
+        <option value="SMS">SMS</option>
+    </select>
+
+    <div *ngFor="let fund of funds" class="fund-card">
+
+        <h3>{{ fund.name }}</h3>
+
+        <p>Monto mínimo: {{ fund.minimumAmount | currency:'COP':'symbol':'1.0-0' }}</p>
+
+        <p>Categoría: {{ fund.category }}</p>
+
+        <button (click)="subscribeFund(fund)">Suscribirse</button>
+        <button (click)="cancelFund(fund)">Cancelar</button>
+
+    </div>
+
+</div>

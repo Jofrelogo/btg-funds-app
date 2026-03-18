@@ -1,0 +1,19 @@
+.navbar {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: #f5f5f5;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

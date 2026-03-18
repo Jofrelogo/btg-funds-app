@@ -1,0 +1,23 @@
+<h1>Historial de transacciones</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Tipo</th>
+            <th>Fondo</th>
+            <th>Monto</th>
+            <th>Método</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let transaction of transactions">
+            <td>{{ transaction.type }}</td>
+            <td>{{ transaction.fundName }}</td>
+            <td>{{ transaction.amount | currency:'COP':'symbol':'1.0-0' }}</td>
+            <td>{{ transaction.notificationMethod }}</td>
+            <td>{{ transaction.date }}</td>
+        </tr>
+    </tbody>
+</table>

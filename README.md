@@ -1,27 +1,148 @@
-# BtgFundsApp
+# BTG Fondos Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.21.
+Aplicación web desarrollada en Angular para la gestión de fondos de inversión (FPV / FIC), permitiendo a un usuario administrar sus suscripciones, cancelaciones y visualizar el historial de transacciones.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Tecnologías utilizadas
 
-## Code scaffolding
+* Angular 18
+* TypeScript
+* Angular Material
+* RxJS
+* JSON Server (Mock API)
+* CSS Responsive Design
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+# Funcionalidades implementadas
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Gestión de fondos
 
-## Running unit tests
+* Visualización de fondos disponibles
+* Validación de monto mínimo para suscripción
+* Cancelación de participación en fondos
+* Actualización automática de saldo
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Historial de transacciones
 
-## Running end-to-end tests
+* Registro de suscripciones
+* Registro de cancelaciones
+* Fecha de operación
+* Método de notificación seleccionado
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Notificaciones
 
-## Further help
+* Selección de Email o SMS al suscribirse
+* Feedback visual mediante Snackbar
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Responsive Design
+
+* Adaptado para escritorio
+* Adaptado para dispositivos móviles
+
+---
+
+# Saldo inicial del usuario
+
+COP $500.000
+
+---
+
+# Fondos disponibles
+
+| ID | Nombre                      | Monto mínimo | Categoría |
+| -- | --------------------------- | ------------ | --------- |
+| 1  | FPV_BTG_PACTUAL_RECAUDADORA | COP $75.000  | FPV       |
+| 2  | FPV_BTG_PACTUAL_ECOPETROL   | COP $125.000 | FPV       |
+| 3  | DEUDAPRIVADA                | COP $50.000  | FIC       |
+| 4  | FDO-ACCIONES                | COP $250.000 | FIC       |
+| 5  | FPV_BTG_PACTUAL_DINAMICA    | COP $100.000 | FPV       |
+
+---
+
+# Ejecución del proyecto
+
+## Instalar dependencias
+
+```bash
+npm install
+```
+
+## Ejecutar aplicación Angular
+
+```bash
+ng serve
+```
+
+## Ejecutar mock API
+
+```bash
+json-server --watch db.json --port 3000
+```
+
+---
+
+# URL de acceso
+
+Frontend:
+
+```bash
+http://localhost:4200
+```
+
+Mock API:
+
+```bash
+http://localhost:3000/funds
+```
+
+---
+
+# Estructura del proyecto
+
+```plaintext
+src/
+ ├── app/
+ │   ├── components/
+ │   ├── pages/
+ │   ├── services/
+ │   ├── models/
+ │   └── app.routes.ts
+ ├── assets/
+```
+
+---
+
+# Capturas de pantalla
+
+## Dashboard principal
+
+![Dashboard](src/assets/readme/dashboard.png)
+
+---
+
+## Historial de transacciones
+
+![Historial](src/assets/readme/history.png)
+
+---
+
+## Responsive móvil
+
+![Responsive](src/assets/readme/mobile.png)
+
+---
+
+# Posibles mejoras futuras
+
+* Persistencia real en backend
+* Autenticación de usuario
+* Filtros avanzados en historial
+* Exportación de movimientos
+
+---
+
+# Autor
+Jhon Fredy Lopez
+Desarrollado como prueba técnica Front-End.
